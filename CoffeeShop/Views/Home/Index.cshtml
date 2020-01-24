@@ -1,0 +1,62 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Index Page</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<form asp-controller="Home" asp-action="Welcome">
+    <!-- we use the name attribute to map this text input to our parameter in
+        the back end controller-->
+
+    <div class="form-group">
+        <legend>PERSON</legend>
+
+        <label>First Name</label>
+        <input type="text" name="firstname" /><br />
+
+        <label>Middle Initial</label>
+        <input type="text" name="middleinitial" /><br />
+
+        <label>Last Name</label>
+        <input type="text" name="lastname" /><br />
+    </div>
+
+    <div class="form-group">
+        <legend>LOGIN INFO</legend>
+
+        <label>Username</label>
+        <input type="text" name="username" /><br />
+
+        <label>Email</label>
+        <!--give each input a unique name to insure proper mapping in the back end-->
+        <input type="email" name="email" /><br />
+
+        <label>Password</label>
+        <!--give each input a unique name to insure proper mapping in the back end-->
+        <input type="password" name="password" /><br />
+
+        <input type="password" name="passwordtwo" />
+
+
+        <label>Coffee</label>  <br />
+        <input type="radio" name="gender" value="male" checked> Dark<br>
+        <input type="radio" name="gender" value="female"> Light<br>
+        <input type="radio" name="gender" value="other"> Decaf<br />
+    </div>
+
+    <!-- we use input type submit to submit our form to the assigned controller/action-->
+    <input type="submit" />
+</form>
+
+<style>
+    body {
+        background-color: #74afb8;
+    }
+
+    p {
+        background-color: #93B874;
+    }
+</style>
