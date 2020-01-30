@@ -1,62 +1,69 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Index Page</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <style type="text/css">
+        body {
+            font-family: "Impact", sans-serif;
+            color: #ffffff;
+        }
+
+        h1 {
+            font-family: "Impact", sans-serif;
+            color: #ffffff
+        }
+
+          a { color: #FF0000; } /* CSS link color */
+    </style>
+</div>
+<div>
+    <h1 class="display-4">GinaBean Coffee Shop</h1>
 </div>
 
-<form asp-controller="Home" asp-action="Welcome">
-    <!-- we use the name attribute to map this text input to our parameter in
-        the back end controller-->
 
-    <div class="form-group">
-        <legend>PERSON</legend>
+@if (HttpContextAccessor.HttpContext.Session.GetString("session_username") != null)
+{
+    <text>
+        Logged in username from Session is: @HttpContextAccessor.HttpContext.Session.GetString("session_username")
+    </text>
+}
 
-        <label>First Name</label>
-        <input type="text" name="firstname" /><br />
+else
+{
+ 
+<h2>
+    <text>You are not logged in.</text>
+    <br />
+    <br />
+    <text>To LOGIN</text><a href=https://localhost:5001/Home/Login> click here.</a>
+    <br />
+    <text>To REGISTER</text><a href=https://localhost:5001/Home/Register> click here. </a>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <text>To browse GinaBean's retail shop</text><a href=https://localhost:5001/Home/Shop> click here. </a><br />
+    <text>You must be</text> <a href=https://localhost:5001/Home/Login>logged-in</a><text> to make purchases.</text><br />
 
-        <label>Middle Initial</label>
-        <input type="text" name="middleinitial" /><br />
-
-        <label>Last Name</label>
-        <input type="text" name="lastname" /><br />
-    </div>
-
-    <div class="form-group">
-        <legend>LOGIN INFO</legend>
-
-        <label>Username</label>
-        <input type="text" name="username" /><br />
-
-        <label>Email</label>
-        <!--give each input a unique name to insure proper mapping in the back end-->
-        <input type="email" name="email" /><br />
-
-        <label>Password</label>
-        <!--give each input a unique name to insure proper mapping in the back end-->
-        <input type="password" name="password" /><br />
-
-        <input type="password" name="passwordtwo" />
+</h2>
+}
 
 
-        <label>Coffee</label>  <br />
-        <input type="radio" name="gender" value="male" checked> Dark<br>
-        <input type="radio" name="gender" value="female"> Light<br>
-        <input type="radio" name="gender" value="other"> Decaf<br />
-    </div>
-
-    <!-- we use input type submit to submit our form to the assigned controller/action-->
-    <input type="submit" />
-</form>
 
 <style>
     body {
-        background-color: #74afb8;
+        background-color: #808080;
+        background-image: url("https://cdn.pixabay.com/photo/2016/09/07/04/22/coffee-beans-1650788_1280.jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
     }
 
-    p {
-        background-color: #93B874;
-    }
 </style>

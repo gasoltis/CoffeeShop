@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Register</h1>
+
+@ViewBag.ErrorMessage
+
+<form asp-controller="Home" method="post" asp-action="MakeNewUser">
+    <!-- we use the name attribute to map this text input to our parameter in
+        the back end controller-->
+
+    <div class="form-group">
+        <legend>PERSON</legend>
+
+        <label>First Name</label><br />
+        <input type="text" name="firstname" /><br />
+
+        <label>Last Name</label><br />
+        <input type="text" name="lastname" /><br />
+    </div>
+
+    <div class="form-group">
+        <legend>LOGIN INFO</legend>
+
+        <label>Username</label><br />
+        <input type="text" name="username" /><br />
+
+        <label>Email</label><br />
+        <!--give each input a unique name to insure proper mapping in the back end-->
+        <input type="email" name="email" /><br />
+
+        <label>Password</label><br />
+        <!--give each input a unique name to insure proper mapping in the back end-->
+        <input type="password" name="password" /><br />
+        <label>Type Password Again</label><br />
+        <input type="password" name="passwordtwo" /><br />
+
+    </div>
+
+    <!-- we use input type submit to submit our form to the assigned controller/action-->
+    <input type="submit" />
+</form>
+
+
+@ViewBag.Firstname

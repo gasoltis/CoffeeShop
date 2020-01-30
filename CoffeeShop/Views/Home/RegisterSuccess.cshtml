@@ -1,0 +1,21 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    ViewData["Title"] = "Register Success";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>RegisterSuccess</h1>
+
+@if (HttpContextAccessor.HttpContext.Session.GetString("session_username") != null)
+{
+    <text>
+        You are logged in. Your username from Session is: @HttpContextAccessor.HttpContext.Session.GetString("session_username")
+    </text>
+}
+
+else
+{
+    <text>Not logged in</text>
+}
+

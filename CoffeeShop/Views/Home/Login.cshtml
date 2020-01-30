@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Login</h1>
+
+@ViewBag.ErrorMessage
+
+<form asp-controller="Home" method="post" asp-action="Login">
+
+    <div class="form-group">
+        <legend>LOGIN INFO</legend>
+
+        <label>Username</label>
+        <input type="text" name="username" /><br />
+
+        <label>Password</label>
+        <!--give each input a unique name to insure proper mapping in the back end-->
+        <input type="password" name="password" /><br />
+
+    </div>
+
+    <input type="submit" />
+</form>

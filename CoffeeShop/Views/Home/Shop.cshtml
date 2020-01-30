@@ -1,0 +1,39 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+@model List<Items>
+
+
+@{
+    ViewData["Title"] = "Shop";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Shop</h1>
+
+<table>
+
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.Description</td>
+            <td>@item.Quantity</td>
+            <td>@item.Price</td>
+
+            <td>
+                @if (HttpContextAccessor.HttpContext.Session.GetString("session_username") != null)
+
+                {
+                    <form asp-controller="Home" method="post" asp-action="Shop">
+                        <input type="hidden" value="@item.Id" name="itemId" />
+                        <input type="submit" name="submit" value="Buy Now" id="@item.Id" />
+                    </form>
+                }
+            </td>
+        </tr>
+    }
+</table>
+
